@@ -20,4 +20,4 @@ Only the first column (river name codes) of this file is used for Thresholds_Cod
 
 ## Remaking Figures
 
-All information necessary to remake the figures in this paper is either in the "Making_Figures" folder, in the "Historical_Data" folder, or is an output of the main script "Thresholds_Code_Final.py". If something is missing I would be happy to include it.
+All information necessary to remake the figures in this paper is either in the "Making_Figures" folder, in the "Multiple_Source_Historical_Data" folder, or is an output of the main script "Thresholds_Code_Final.py". If something is missing I would be happy to include it.
