@@ -8,8 +8,11 @@ The CMIP5 downscaled streamflow projections can be found at ftp://gdo-dcp.ucllnl
 
 ## Sites_Master_List_Final.csv
 
-Only the first column (river name codes) of this file is used for the main code. Other information here is used for drawing the map and to keep track of additional data sources. The first set of longitude and latitude values is directly from the CMIP5 downscaled streamflow projections data (listed above), and the second set of longitude and latitude values is what is listed by each site's individual agencies (they are not always the same).
+Only the first column (river name codes) of this file is used for Thresholds_Code_Final.py. Other information here is used for drawing the map and to keep track of additional data sources. The first set of longitude and latitude values is directly from the CMIP5 downscaled streamflow projections data (listed above), and the second set of longitude and latitude values is what is listed by each site's individual agencies (they are not always the same).
 
 ## To Run Thresholds_Code_Final.py
 
-
+1. Download the files included in this repository and the data folder "cmip5_ncar_mon" from the site referenced above.
+2. Make sure that you have the necessary libraries installed (numpy, matplotlib, and pandas).
+3. Change the "Data" folder in line 51 to match the location of Sites_Master_List_Final.csv.
+4. Check that the location of the "cmip_ncar_mon" folder in lines 64 and 96 is correct.
