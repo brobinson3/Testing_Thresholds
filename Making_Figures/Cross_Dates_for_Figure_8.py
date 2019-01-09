@@ -1,14 +1,10 @@
-from __future__ import division
 import numpy as np 
-import copy
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 from pandas import *
 import seaborn as sns
-from scipy.stats import skew, norm
 import datetime
-plt.show(block=False)
 
 def init_plotting():
   sns.set_style('whitegrid')
