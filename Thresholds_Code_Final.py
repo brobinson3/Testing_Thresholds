@@ -1,14 +1,9 @@
-from __future__ import division
 import numpy as np 
-import copy
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 from pandas import *
-import seaborn as sns
-from scipy.stats import skew, norm
 import datetime
-plt.show(block=False)
 
 def taf_to_cfs(Q):
   return Q * 1000 / 86400 * 43560
@@ -48,7 +43,7 @@ def interpolate_consecutive(df, limit):  # Note: interpolates a ROW of data, not
 
 ### SITE NAMES ######################################################################################
 
-df = pd.read_csv('Data/Sites_Master_List_with_added_rivers_18-03-14.csv', delimiter=',', header=None, skiprows=1) 	# Reads a list of five-digit site codes
+df = pd.read_csv('Sites_Master_List_Final.csv', delimiter=',', header=None, skiprows=1) 	# Reads a list of five-digit site codes
 sites = df[0].values 	# List of five-digit site codes
 
 ### PARAMETERS #####################################################################################
@@ -61,7 +56,7 @@ interp_limit = 10		# Interpolation limit (not applicable)
 
 ### SETUP ONLY ######################################################################################
 
-dff = pd.read_csv('Data/streamflow_cmip5_ncar_month_FOL_I.csv', 		# Reads monthly ncar (historical) data for the Folsom site
+dff = pd.read_csv('cmip5_ncar_mon/streamflow_cmip5_ncar_month_FOL_I.csv', 		# Reads monthly ncar (historical) data for the Folsom site
                     index_col='datetime', 
                     parse_dates={'datetime': [0,1]},
                     date_parser=lambda x: pd.datetime.strptime(x, '%Y %m'))
@@ -93,7 +88,7 @@ site_count = 0			# Tells it which site to start with (the first one on the list)
 for site in sites:		# Calculates one site at a time
 
   ### Reads historical and CMIP5 data ###
-  dff = pd.read_csv('Data/CMIP5 Data/cmip5_ncar_mon/streamflow_cmip5_ncar_month_'+site+'.csv', 		# Gets ncar (historical) data for this site
+  dff = pd.read_csv('cmip5_ncar_mon/streamflow_cmip5_ncar_month_'+site+'.csv', 		# Gets ncar (historical) data for this site
                     index_col='datetime', 
                     parse_dates={'datetime': [0,1]},
                     date_parser=lambda x: pd.datetime.strptime(x, '%Y %m'))
