@@ -14,5 +14,6 @@ Only the first column (river name codes) of this file is used for Thresholds_Cod
 
 1. Download the files included in this repository and the data folder "cmip5_ncar_mon" from the site referenced above.
 2. Make sure that you have the necessary libraries installed (numpy, matplotlib, and pandas).
-3. Change the "Data" folder in line 51 to match the location of Sites_Master_List_Final.csv.
-4. Check that the location of the "cmip_ncar_mon" folder in lines 64 and 96 is correct.
+3. Check that the location of Sites_Master_List_Final.csv in line 46 is correct.
+4. Check that the location of the "cmip_ncar_mon" folder in lines 59 and 91 is correct.
+5. Run and wait. It should take a while before the first print statement appears.
