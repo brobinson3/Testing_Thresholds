@@ -8,4 +8,8 @@ The CMIP5 downscaled streamflow projections can be found at ftp://gdo-dcp.ucllnl
 
 ## Sites_Master_List_Final.csv
 
-Only the first column (river name codes) of this file is used for the main code. Other information here is used for drawing the map and to keep track of additional data sources.
+Only the first column (river name codes) of this file is used for the main code. Other information here is used for drawing the map and to keep track of additional data sources. The first set of longitude and latitude values is directly from the CMIP5 downscaled streamflow projections data (listed above), and the second set of longitude and latitude values is what is listed by each site's individual agencies (they are not always the same).
+
+## To Run Thresholds_Code_Final.py
+
+
