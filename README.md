@@ -4,8 +4,7 @@ This code was used for the computational work in the following paper:
 
 Robinson, B., & Herman, J. D. (2018). A framework for testing dynamic classification of vulnerable scenarios in ensemble water supply projections. Climatic Change, 1-18. (found at: https://link.springer.com/article/10.1007/s10584-018-2347-3)
 
-![Figure 3 Example](/Figures/Figure 3.svg)
-Format: ![Alt Text](url)
+![Figure 3 Example](https://github.com/brobinson3/Testing_Thresholds/blob/master/Figures/Figure 3.svg)
 
 This code is a statistical testing approach for threshold-based classifiers of vulnerable scenarios in long-term streamflow projections. For the paper, this code is run over many combinations of 'time' (window size) and 'agreement' parameters. A user would have to replicate all of those runs to replicate the work in that paper and to make all of the figures included.
 
