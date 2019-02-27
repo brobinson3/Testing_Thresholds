@@ -17,7 +17,7 @@ Only the first column (river name codes) of this file is used for Thresholds_Cod
 1. Download the files included in this repository and the data folder "cmip5_ncar_mon" from the site referenced above.
 2. Make sure that you have the necessary libraries installed (numpy, matplotlib, and pandas).
 3. Check that the "cmip_ncar_mon" folder is in the "Testing_Thresholds" folder you downloaded.
-4. Run and wait. It should take about X before the first print statement appears.
+4. Run and wait. It should take about 25 minutes before the first print statement appears.
 
 ## Remaking Figures
 
