@@ -2,19 +2,15 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
-from pandas import *
+import os
 import datetime
-
-def taf_to_cfs(Q):
-  return Q * 1000 / 86400 * 43560
-
-def cfs_to_taf_d(Q):
-  return Q * 2.29568411*10**-5 * 86400 / 1000
 
 def cfs_to_taf_m(Q):
   return Q / 43559.9 / 1000 * 60 * 60 * 24 * 30.4375
 
-def interpolate_consecutive(df, limit):  # Note: interpolates a ROW of data, not a column
+def interpolate_consecutive(df, limit):  
+# Note: interpolates a ROW of data, not a column
+# This is an extra option available in the interpolation step. Instead of interpolating over every gap, can only interpolate over gaps smaller than a certain size
   indices_to_drop = []
   current_consec = 0
   column_names = df.columns
@@ -43,8 +39,9 @@ def interpolate_consecutive(df, limit):  # Note: interpolates a ROW of data, not
 
 ### SITE NAMES ######################################################################################
 
-df = pd.read_csv('Sites_Master_List_Final.csv', delimiter=',', header=None, skiprows=1) 	# Reads a list of five-digit site codes
+df = pd.read_csv('Sites_Master_List.csv', delimiter=',', header=None, skiprows=1) 	# Reads a list of five-digit site codes
 sites = df[0].values 	# List of five-digit site codes
+# sites = sites[0] # If you only want to run one site instead of them all, from the list of five-digit site code names pick one and put it here
 
 ### PARAMETERS #####################################################################################
 
@@ -220,15 +217,16 @@ for site in sites:		# Calculates one site at a time
 
 ### SAVING FILES ############################################################################################################
 
-saved_false_neg.to_csv('{}-yr_False_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_false_pos.to_csv('{}-yr_False_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_total_neg.to_csv('{}-yr_Total_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_total_pos.to_csv('{}-yr_Total_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_false_neg_percent.to_csv('{}-yr_Percent_False_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_false_pos_percent.to_csv('{}-yr_Percent_False_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_true_neg.to_csv('{}-yr_True_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-saved_true_pos.to_csv('{}-yr_True_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
-error_matrix.to_csv('{}-yr_Error_Matrix_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+os.makedirs('Outputs',exist_ok=True)
+saved_false_neg.to_csv('Outputs/{}-yr_False_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_false_pos.to_csv('Outputs/{}-yr_False_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_total_neg.to_csv('Outputs/{}-yr_Total_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_total_pos.to_csv('Outputs/{}-yr_Total_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_false_neg_percent.to_csv('Outputs/{}-yr_Percent_False_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_false_pos_percent.to_csv('Outputs/{}-yr_Percent_False_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_true_neg.to_csv('Outputs/{}-yr_True_Negatives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+saved_true_pos.to_csv('Outputs/{}-yr_True_Positives_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
+error_matrix.to_csv('Outputs/{}-yr_Error_Matrix_with_{}-lowest_and_{}%_agreement_with_interpolation_all.csv'.format(time,danger_count,agreement*100))
 
 ############################################################################################################################
 
